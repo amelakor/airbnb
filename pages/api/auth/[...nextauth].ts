@@ -4,7 +4,7 @@ import NextAuth, { AuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-
+import { User } from "@prisma/client";
 import prisma from "@/app/lib/prismadb";
 
 export const authOptions: AuthOptions = {
@@ -24,7 +24,7 @@ export const authOptions: AuthOptions = {
                 email: { label: "Email", type: "text" },
                 password: { label: "Password", type: "password" },
             },
-            async authorize(credentials) {
+            async authorize(credentials: User) {
                 if (!credentials.email || !credentials.password) {
                     throw new Error("Missing credentials");
                 }
