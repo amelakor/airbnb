@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
 import { SafeUser } from "@/app/types";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
@@ -13,6 +14,8 @@ interface UserMenuProps {
     currentUser?: SafeUser | null;
 }
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+    const router = useRouter();
+
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const rentModal = useRentModal();
@@ -53,13 +56,16 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     <div className="flex flex-col cursor-pointer">
                         {currentUser ? (
                             <>
-                                <MenuItem onClick={() => {}} label="My trips" />
+                                <MenuItem
+                                    onClick={() => router.push("/trips")}
+                                    label="My trips"
+                                />
                                 <MenuItem
                                     onClick={() => {}}
                                     label="My Favourites"
                                 />
                                 <MenuItem
-                                    onClick={() => {}}
+                                    onClick={() => router.push("/reservations")}
                                     label="My Reservations"
                                 />
                                 <MenuItem
