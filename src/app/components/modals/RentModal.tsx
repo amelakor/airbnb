@@ -2,7 +2,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { useCallback, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import dynamic from "next/dynamic";
 import Modal from "./Modal";
