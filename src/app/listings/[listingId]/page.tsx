@@ -14,8 +14,6 @@ const ListingPage = async ({ params }: { params: Iparams }) => {
     const resevations = await getReservations(params);
     const currentUser = await getCurrentUser();
 
-    console.log(listing, "listing");
-
     if (!listing) {
         return <EmptyState />;
     }

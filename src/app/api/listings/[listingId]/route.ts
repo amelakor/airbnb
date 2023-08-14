@@ -32,3 +32,5 @@ export async function DELETE(
 
     return NextResponse.json(listing);
 }
+
+export const dynamic = "force-dynamic";
