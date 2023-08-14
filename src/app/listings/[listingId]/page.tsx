@@ -14,6 +14,8 @@ const ListingPage = async ({ params }: { params: Iparams }) => {
     const resevations = await getReservations(params);
     const currentUser = await getCurrentUser();
 
+    console.log(listing, "listing");
+
     if (!listing) {
         return <EmptyState />;
     }
@@ -21,9 +23,9 @@ const ListingPage = async ({ params }: { params: Iparams }) => {
     return (
         <ClientOnly>
             <ListingClient
-                listing={listing}
+                listing={listing as any}
                 currentUser={currentUser}
-                reservations={resevations}
+                reservations={resevations as any}
             />
         </ClientOnly>
     );
